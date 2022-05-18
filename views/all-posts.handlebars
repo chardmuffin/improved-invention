@@ -1,0 +1,33 @@
+{{!-- JESSIE   --}}
+<div class="single-blog-post">
+    <h1>{{title}}</h1>
+    <p>{{post_body}}</p>
+
+    <div class="comments">
+        {{#each comments as |comment|}}
+        <div class="comment">
+            <p>{{comment_body}}</p>
+            <p>{{date_created}}</p>
+        </div>
+        {{/each}}
+    </div>
+
+    <form name="comments" class="commentForm">
+        <div class="flex-column">
+            <div>Comment:</div>
+            <div>
+                <textarea name="comment" id="comment" rows="10" cols="120"></textarea>
+                <input type="hidden" name="date_created" value="{{todays_date}}">
+                <input type="hidden" name="user_id" value="{{user_id}}">
+                <input type="hidden" name="blogpost_id" value="{{id}}">
+            </div>
+            <div>
+                <input type="submit" value="Add Comment" class="button btn btn-primary">
+
+            </div>
+        </div>
+    </form>
+
+    <script src="/js/post.js"></script>
+</div>
+{{!-- JESSIE ends --}}
