@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
     const posts = postData.map((post) => post.get({ plain: true }));
 
     // fill in the view to be rendered
-    res.render('hmmmm what goes here', {
+    res.render('', {
       // this is how we specify a different layout other than main! no change needed
       layout: 'dashboard',
       // coming from line 10 above, no change needed
@@ -32,7 +32,7 @@ router.get('/new', (req, res) => {
 router.get('/edit/:id', async (req, res) => {
   try {
     // what should we pass here? we need to get some data passed via the request body
-    const postData = await Post.findByPk(1);
+    const postData = await Post.findByPk(req.params.id);
 
     if (postData) {
       // serializing the data
