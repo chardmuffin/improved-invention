@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, Comment, User } = require('../models/');
+//const { Post, Comment, User } = require('../models/');
 
 // get all posts for homepage
 router.get('/', async (req, res) => {
@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
     // serialize the data
     const posts = postData.map((post) => post.get({ plain: true }));
     // we should render all the posts here
-    res.render('hmmmm what view should we render?', { posts });
+    res.render('all-posts', { posts });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -22,7 +22,7 @@ router.get('/post/:id', async (req, res) => {
   try {
     // what should we pass here? we need to get some data passed via the request body (something.something.id?)
     // change the model below, but not the findByPk method.
-    const postData = await SomeModel.findByPk(????, {
+    const postData = await SomeModel.findByPk(1, {
       // helping you out with the include here, no changes necessary
       include: [
         User,
