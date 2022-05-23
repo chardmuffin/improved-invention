@@ -23,7 +23,7 @@ router.get('/', withAuth, async (req, res) => {
 
 router.get('/new', withAuth, (req, res) => {
   // what view should we send the client when they want to create a new-post? (change this next line)
-  res.render('hmmmm what goes here', {
+  res.render('new-post', {
     // again, rendering with a different layout than main! no change needed
     layout: 'dashboard',
   });
@@ -38,7 +38,7 @@ router.get('/edit/:id', withAuth, async (req, res) => {
       // serializing the data
       const post = postData.get({ plain: true });
       // which view should we render if we want to edit a post?
-      res.render('hmmmm what goes here', {
+      res.render('edit-post', {
         layout: 'dashboard',
         post,
       });
