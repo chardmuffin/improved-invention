@@ -1,72 +1,73 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/config');
-// create our Post model
+
+const sequelize = require('./config/config');
+
 class Post extends Model {
-  static upvote(body, models) {
-    return models.Vote.create({
-      user_id: body.user_id,
-      post_id: body.post_id
-    }).then(() => {
-      return Post.findOne({
-        where: {
-          id: body.post_id
-        },
-        attributes: [
-          'id',
-          'post_url',
-          'title',
-          'created_at',
-          [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
-        ],
-        include: [
-          {
-            model: models.Comment,
-            attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-            include: {
-              model: models.User,
-              attributes: ['username']
-            }
-          }
-        ]
-      });
-    });
-  }
+    // static async createPost(postData) {
+    //     return await this.create(postData);
+    // }
+
+    // static async getPostById(postId) {
+    //     return await this.findOne({
+    //         where: {
+    //             id: postId,
+    //         },
+    //     });
+    // }
+
+    // static async getPosts() {
+    //     return await this.findAll();
+    // }
+
+    // static async updatePost(postId, postData) {
+    //     return await this.update(postData, {
+    //         where: {
+    //             id: postId,
+    //         },
+    //     });
+    // }
+
+    // static async deletePost(postId) {
+    //     return await this.destroy({
+    //         where: {
+    //             id: postId,
+    //         },
+    //     });
+    // }
 }
 
-// create fields/columns for Post model
 Post.init(
-  {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true
+    {
+        id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true,
+        },
+        title: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        content: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        createdAt: {
+            type: DataTypes.DATE,
+            allowNull: false,
+        },
+        updatedAt: {
+            type: DataTypes.DATE,
+            allowNull: false,
+        },
     },
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    post_url: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        isURL: true
-      }
-    },
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'user',
-        key: 'id'
-      }
+    {
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'post',
     }
-  },
-  {
-    sequelize,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'post'
-  }
 );
 
-module.exports = Post;
+module.exports = Post
