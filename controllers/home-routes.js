@@ -1,12 +1,17 @@
 const router = require('express').Router();
-//const { Post, Comment, User } = require('../models/');
+const { Post, Comment, User } = require('../models/');
 
 // get all posts for homepage
 router.get('/', async (req, res) => {
   try {
     // we need to get all Posts and include the User for each (change lines 8 and 9)
-    const postData = await SomeModel.someSequelizeMethod({
-      include: [SomeOtherModel],
+    const postData = await Post.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+        },
+      ],
     });
     // serialize the data
     const posts = postData.map((post) => post.get({ plain: true }));
@@ -22,7 +27,7 @@ router.get('/post/:id', async (req, res) => {
   try {
     // what should we pass here? we need to get some data passed via the request body (something.something.id?)
     // change the model below, but not the findByPk method.
-    const postData = await SomeModel.findByPk(req.params.id, {
+    const postData = await Post.findByPk(req.params.id, {
       // helping you out with the include here, no changes necessary
       include: [
         User,
