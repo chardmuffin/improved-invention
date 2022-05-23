@@ -1,5 +1,5 @@
 :root {
-  --primary: #ccdad1;
+  --primary:skyblue;
   --secondary: #9caea9;
   --tertiary: #788585;
   --light-dark: #6f6866;
@@ -117,7 +117,7 @@ input {
 
 .hero {
   padding: 3% 4%;
-  background-color: var(--dark);
+  background-image: url(../images/Rainy_Blue_Ridge-27527.jpeg);
   color: var(--primary);
 }
 
