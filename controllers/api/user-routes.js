@@ -1,10 +1,11 @@
 const router = require('express').Router();
-//const { User } = require('../../models');
+const { User } = require('../../models');
 
 router.post('/', async (req, res) => {
   try {
     const newUser = await User.create({
       username: req.body.username,
+      email: req.body.email,
       password: req.body.password,
     });
 
@@ -16,12 +17,14 @@ router.post('/', async (req, res) => {
       res.json(newUser);
     });
   } catch (err) {
-    res.status(500).json(err);
+    console.log(err)
+    res.status(500).send(err);
   }
 });
 
 router.post('/login', async (req, res) => {
   try {
+    console.log("working");
     const user = await User.findOne({
       where: {
         username: req.body.username,
@@ -32,6 +35,7 @@ router.post('/login', async (req, res) => {
       res.status(400).json({ message: 'No user account found!' });
       return;
     }
+    console.log("running")
 
     const validPassword = user.checkPassword(req.body.password);
 
