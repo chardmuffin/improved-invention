@@ -119,6 +119,11 @@ input {
   padding: 3% 4%;
   background-image: url(../images/Rainy_Blue_Ridge-27527.jpeg);
   color: var(--primary);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment:fixed;
+  background-position: center;
+  height:300px;
 }
 
 .hero p {

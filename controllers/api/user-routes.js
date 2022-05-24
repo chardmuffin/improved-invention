@@ -22,6 +22,7 @@ router.post('/', async (req, res) => {
 
 router.post('/login', async (req, res) => {
   try {
+    console.log("working");
     const user = await User.findOne({
       where: {
         username: req.body.username,
@@ -32,6 +33,7 @@ router.post('/login', async (req, res) => {
       res.status(400).json({ message: 'No user account found!' });
       return;
     }
+    console.log("running")
 
     const validPassword = user.checkPassword(req.body.password);
 
