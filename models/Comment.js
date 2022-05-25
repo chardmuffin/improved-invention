@@ -59,12 +59,13 @@ Comment.init(
             type: DataTypes.DATE,
             allowNull: false,
         },
-        post_id: {
+        postId: {
             type: DataTypes.INTEGER,
+            allowNull: false,
             references: {
                 model: 'post',
-                key: 'id'
-            }
+                key: 'id',
+            },
         }
     },
     {

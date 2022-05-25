@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
     // serialize the data
     const posts = postData.map((post) => post.get({ plain: true }));
     // we should render all the posts here
-    res.render('all-posts', { posts });
+    res.render('all-posts', { posts, loggedIn:req.session.loggedIn });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -42,7 +42,7 @@ router.get('/post/:id', async (req, res) => {
       // serialize the data
       const post = postData.get({ plain: true });
       // which view should we render for a single-post?
-      res.render('single-post', { post });
+      res.render('single-post', { post, loggedIn:req.session.loggedIn });
     } else {
       res.status(404).end();
     }
