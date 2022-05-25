@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('./config/config');
+const sequelize = require('../config/config');
 
 class Comment extends Model {
     // static async createComment(commentData) {
@@ -59,12 +59,13 @@ Comment.init(
             type: DataTypes.DATE,
             allowNull: false,
         },
-        post_id: {
+        postId: {
             type: DataTypes.INTEGER,
+            allowNull: false,
             references: {
                 model: 'post',
-                key: 'id'
-            }
+                key: 'id',
+            },
         }
     },
     {

@@ -1,5 +1,4 @@
-# Gather
-# **Professional-README**
+# **Gather**
 
 ![License: Unlicensed](https://img.shields.io/badge/License-Unlicensed-blue.svg)
 

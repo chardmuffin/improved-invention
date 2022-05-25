@@ -1,3 +1,4 @@
+//import validator from 'validator';
 async function signupFormHandler(event) {
   event.preventDefault();
 
@@ -22,6 +23,9 @@ console.log(username,email,password);
       alert(response.statusText);
     }
   }
+
+
 }
 
 document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
+
