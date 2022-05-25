@@ -1,3 +1,4 @@
+//import validator from 'validator';
 async function signupFormHandler(event) {
   event.preventDefault();
 
