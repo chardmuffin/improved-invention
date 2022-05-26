@@ -78,14 +78,16 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
+  console.log(req.body)
   try {
     console.log("working");
     const user = await User.findOne({
       where: {
-        username: req.body.username,
+        email: req.body.email,
       },
     });
-
+    console.log(req.body.email);
+    console.log(user)
     if (!user) {
       res.status(400).json({ message: 'No user account found!' });
       return;
@@ -107,6 +109,7 @@ router.post('/login', async (req, res) => {
       res.json({ user, message: 'You are now logged in!' });
     });
   } catch (err) {
+    console.log(err);
     res.status(400).json({ message: 'No user account found!' });
   }
 });
