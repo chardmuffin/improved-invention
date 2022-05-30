@@ -1,15 +1,15 @@
 //TODO NEEDS DATE CREATED AND DATE EDITED
 const { Post } = require('../models');
 
-const postdata = [
+const postData = [
   {
     title: 'Why North Carolina is the Best Carolina',
-    content: "If you want to live in one of the most beautiful places on Earth, the Tar Heel State doesn't disappoint. The Appalachian, Blue Ridge and Great Smoky Mountains all thread their way through the western part of the state, and it's where you'll find some of the highest peaks east of the Mississippi. If you've got a daredevil spirit, a walk along the Mile High Swinging Bridge at Grandfather Mountain is sure to get your pulse racing.",
+    content: "The Appalachian, Blue Ridge and Great Smoky Mountains all thread their way through the western part of the state. If you've got a daredevil spirit, a walk along the Mile High Swinging Bridge at Grandfather Mountain is sure to get your pulse racing.",
     user_id: 10
   },
   {
     title: 'Live Music in NC This Summer',
-    content: "here’s nothing better on a warm evening than listening to music outdoors. Here’s a list of free summer concert series for 2022 in the Triangle. You’ll find live music in Raleigh, Durham, Cary, Chapel Hill, Pittsboro, Carrboro, Hillsborough, Smithfield, and more. Maybe 'summer' stretches a little bit into spring and autumn too. Most of these concert series are family friendly. At many you can purchase food from food trucks. Most of these concerts are free, but we’ve also included some that are low-cost. Read about some of our favorite outdoor concert series, and then scroll down for a day by day list of every outdoor concert on Triangle on the Cheap’s calendar for the next 90 days. This list includes outdoor concerts at festivals and market as well. Make sure to follow each link for details.",
+    content: "Here’s a list of free summer concert series for 2022 in the Triangle. You’ll find live music in Raleigh, Durham, Cary, and more. This list includes outdoor concerts at festivals and market as well. Make sure to follow each link for details.",
     user_id: 8
   },
   {
@@ -105,6 +105,6 @@ const postdata = [
   }
 ];
 
-const seedPosts = () => Post.bulkCreate(postdata);
+const seedPosts = () => Post.bulkCreate(postData);
 
 module.exports = seedPosts;
