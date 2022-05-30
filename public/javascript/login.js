@@ -6,7 +6,7 @@ async function loginFormHandler(event) {
 
   if (email && password) {
     const response = await fetch('/api/users/login', {
-      method: 'POST',
+      method: 'post',
       body: JSON.stringify({
         email,
         password
@@ -15,12 +15,11 @@ async function loginFormHandler(event) {
     });
 
     if (response.ok) {
-      document.location.replace('/dashboard/');
+      document.location.replace('/dashboard');
     } else {
       alert(response.statusText);
     }
   }
 }
 
-document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
-
+document.querySelector('#login-form').addEventListener('submit', loginFormHandler);
