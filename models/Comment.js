@@ -18,17 +18,17 @@ Comment.init({
                 key: 'id'
             }
         },
-        comment: {
+        comment_text: {
             type: DataTypes.STRING,
             allowNull: false,
         },
         createdAt: {
             type: DataTypes.DATE,
-            allowNull: false,
+            allowNull: true,
         },
         updatedAt: {
             type: DataTypes.DATE,
-            allowNull: false,
+            allowNull: true,
         },
         postId: {
             type: DataTypes.INTEGER,
@@ -44,7 +44,7 @@ Comment.init({
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'comment',  
+        modelName: 'Comment',  
     }
 );
 

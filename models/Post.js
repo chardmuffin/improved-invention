@@ -21,11 +21,11 @@ Post.init(
         },
         createdAt: {
             type: DataTypes.DATE,
-            allowNull: false,
+            allowNull: true,
         },
         updatedAt: {
             type: DataTypes.DATE,
-            allowNull: false,
+            allowNull: true,
         },
         user_id: {
             type: DataTypes.INTEGER,
@@ -40,7 +40,7 @@ Post.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'post',
+        modelName: 'Post',
     }
 );
 

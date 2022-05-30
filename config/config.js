@@ -14,3 +14,7 @@ const sequelize = new Sequelize(
   });
 
 module.exports = sequelize;
+
+
+
+// API key for google maps: AIzaSyAHwYHpY4pb8Ck1ev5gSK6cqHrJBk-jQzk
