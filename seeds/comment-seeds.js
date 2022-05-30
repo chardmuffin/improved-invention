@@ -1,4 +1,3 @@
-//TODO NEEDS DATE CREATED AND DATE EDITED
 const { Comment } = require('../models');
 
 const commentdata = [
@@ -265,6 +264,6 @@ const commentdata = [
   }
 ];
 
-const seedComments = () => Comment.bulkCreate(commentdata);
+const seedComments = () => Comment.bulkCreate(commentData);
 
 module.exports = seedComments;

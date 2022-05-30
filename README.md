@@ -1,54 +1,34 @@
-# **Gather**
-
-![License: Unlicensed](https://img.shields.io/badge/License-Unlicensed-blue.svg)
-
-## **Purpose**
-
-
-## **Video**
+# Gather
+## Description
 
 
 
-## **Table of Contents**
-<a href="#installation">Installation</a> 
+## Table of Contents
 
-<a href="#usage">Usage</a> 
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contributing](#contributing)
+- [Questions](#questions)
 
-<a href="userLicense">License</a> 
-
-<a href="#contributions">Contributions</a> 
-
-<a href="#tests">Tests</a> 
-
-<a href="questions">Questions</a> 
-
-
-## <h2 id="installation">**Installation**</h2>
-
-
-## <h2 id="usage">**Usage**</h2>
+## Installation
 
 
 
-## <h2 id="userLicense">**License**</h2>
-### <em>NOTICE</em>:
-This project is licensed under the Unlicensed license.
-For more information, CLick Here:
-http://unlicense.org/
+## Usage
 
 
-## <h2 id="contributions">**Contributions**</h2>
-Mike Kuney
 
-## <h2 id="tests">**Tests**</h2>
-undefined
+## License
 
-## <h2 id="questions">**Questions**</h2>
-If you have any questions about the repo, please contact me at: 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-mikeykuney84@gmail.com 
+## Contributing
 
-or visit my GitHub profile at: 
 
-https://github.com/Mikekuney
 
+## Questions
+
+I am on GitHub: [https://github.com/chardmuffin](https://github.com/chardmuffin)
+
+I can also be reached by email at [richardhuffman96@gmail.com](mailto:richardhuffman96@gmail.com)

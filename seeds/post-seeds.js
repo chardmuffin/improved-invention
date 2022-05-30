@@ -1,4 +1,3 @@
-//TODO NEEDS DATE CREATED AND DATE EDITED
 const { Post } = require('../models');
 
 const postdata = [
