@@ -10,6 +10,18 @@
 </head>
 
 <body class="flex-column min-100-vh">
+  <!--JESSIE-->
+  <nav>
+        <!--Conditionally render login or logout links -->
+        {{#if logged_in}}
+        <a href="/dashboard">dashboard</a> |
+        <button class="no-button" id="logout">logout</button>
+        {{else}}
+        <a href="/login">login</a>
+        {{/if}}
+      </nav>
+      <!--JESSIE ends-->
+
   <nav class="navbar">
     <ul>
       {{#if loggedIn}}
