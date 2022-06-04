@@ -56,7 +56,7 @@ router.get('/:id', withAuth, async (req, res) => {
   });
 });
 
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const newUser = await User.create({
       username: req.body.username,

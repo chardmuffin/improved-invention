@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Post, Comment, User } = require('../models/');
-const sequelize = require('../config/config')
+const sequelize = require('../config/config');
 const withAuth = require('../utils/auth');
 
 // get all posts for homepage
@@ -16,7 +16,7 @@ router.get('/', withAuth, async (req, res) => {
       ],
       include: [{
               model: Comment,
-              attributes: ['id', 'comment', 'postId', 'user_id', 'createdAt'],
+              attributes: ['id', 'comment_text', 'postId', 'user_id', 'createdAt'],
               include: {
                   model: User,
                   attributes: ['username']
@@ -70,7 +70,7 @@ router.get('/post/:id', withAuth, async (req, res) => {
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');
-    return;
+    return true;
   }
 
   res.render('login');
@@ -79,7 +79,7 @@ router.get('/login', (req, res) => {
 router.get('/signup', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');
-    return;
+    return true;
   }
 
   res.render('signup');
@@ -94,11 +94,11 @@ router.get('/post/:id', async (req, res) => {
               'id',
               'content',
               'title',
-              'created_at'
+              'createdAt'
           ],
           include: [{
                   model: Comment,
-                  attributes: ['id', 'comment', 'postId', 'user_id', 'createdAt'],
+                  attributes: ['id', 'comment_text', 'postId', 'user_id', 'createdAt'],
                   include: {
                       model: User,
                       attributes: ['username']
@@ -139,7 +139,7 @@ router.get('/posts-comments', withAuth, async (req, res) => {
     ],
     include: [{
             model: Comment,
-            attributes: ['id', 'comment', 'postId', 'user_id', 'createdAT'],
+            attributes: ['id', 'comment_text', 'postId', 'user_id', 'createdAt'],
             include: {
                 model: User,
                 attributes: ['username']
