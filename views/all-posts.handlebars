@@ -1,19 +1,43 @@
 
-{{!-- JESSIE   --}}
-<div class="single-blog-post">
-    <h1>{{title}}</h1>
-    <p>{{post_body}}</p>
+<div class="card">
+    <h3 class="card-header">Edit Post</h3>
+    <form class="card-body edit-post-form">
+        <input type="hidden" name="post-id" value="{{post.id}}">
+        <label for="post-title" class="form-label">Title</label>
+        <input name="post-title" type="text" value="{{post.title}}" class="form-input" />
+        <label class="form-label" for="content">Content</label>
+        <input name="content" type="text" value="{{post.body}}" class="form-input" />
+        <button type="submit" class="btn" id="edit-post-form">Update Post</button>
+        <button type="button" class="delete-post-btn btn" id="delete-btn">Delete Post</button>
+    </form>
+</div>
 
-    <div class="comments">
-        {{#each comments as |comment|}}
-        <div class="comment">
-            <p>{{comment_body}}</p>
-            <p>{{date_created}}</p>
-        </div>
-        {{/each}}
-    </div>
 
-    <form name="comments" class="commentForm">
+<script src="/js/edit.js"></script>
+
+
+
+
+
+
+
+
+{{!-- 
+JESSIE   --}}
+{{!-- <div class="single-blog-post"> --}}
+    {{!-- <h1>{{title}}</h1> --}}
+    {{!-- <p>{{post_body}}</p> --}}
+
+    {{!-- <div class="comments"> --}}
+        {{!-- {{#each comments as |comment|}} --}}
+        {{!-- <div class="comment"> --}}
+            {{!-- <p>{{comment_body}}</p> --}}
+            {{!-- <p>{{date_created}}</p> --}}
+        {{!-- </div> --}}
+        {{!-- {{/each}} --}}
+    {{!-- </div> --}}
+
+    {{!-- <form name="comments" class="commentForm">
         <div class="flex-column">
             <div>Comment:</div>
             <div>
@@ -30,5 +54,6 @@
     </form>
 
     <script src="/js/post.js"></script>
-</div>
+</div> --}}
 {{!-- JESSIE ends --}}
+
