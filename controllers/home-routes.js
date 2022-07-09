@@ -38,7 +38,7 @@ router.get('/', withAuth, async (req, res) => {
 });
 
 // get single post
-router.get('/post/:id', withAuth, async (req, res) => {
+router.get('/new/:id', withAuth, async (req, res) => {
   try {
     // what should we pass here? we need to get some data passed via the request body (something.something.id?)
     // change the model below, but not the findByPk method.
@@ -85,7 +85,7 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
-router.get('/post/:id', async (req, res) => {
+router.get('/new/:id', async (req, res) => {
   await Post.findOne({
           where: {
               id: req.params.id
@@ -126,7 +126,7 @@ router.get('/post/:id', async (req, res) => {
           res.status(500).json(err);
       });
 });
-router.get('/posts-comments', withAuth, async (req, res) => {
+router.get('/new/:id', async (req, res) => {
   await Post.findOne({
     where: {
         id: req.params.id
@@ -158,7 +158,7 @@ router.get('/posts-comments', withAuth, async (req, res) => {
     }
     const post = dbPostData.get({ plain: true });
 
-    res.render('posts-comments', { post, loggedIn: req.session.loggedIn });
+    res.render('new-post', { post, loggedIn: req.session.loggedIn });
   })
   .catch(err => {
     console.log(err);
