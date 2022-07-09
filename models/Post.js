@@ -33,6 +33,10 @@ Post.init(
                 model: 'user',
                 key: 'id'
             }
+        }, 
+        category: {
+            type: DataTypes.STRING,
+            allowNull: false,
         }
     },
     {

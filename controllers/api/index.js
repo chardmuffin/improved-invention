@@ -7,5 +7,10 @@ const commentRoutes = require('./comment-routes');
 router.use('/users', userRoutes);
 router.use('/post', postRoutes);
 router.use('/comment', commentRoutes);
+router.use('/music', commentRoutes);
+router.use('/food', commentRoutes);
+router.use('/outdoors', commentRoutes);
+router.use('/random', commentRoutes);
+
 
 module.exports = router;

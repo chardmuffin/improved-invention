@@ -1,21 +1,37 @@
-<form class="login-form">
+<div>
+    <div class="card">
+        <div class="card-header">
+            <h2>
+                {{post.title}}
+            </h2>
+            <div>
+                posted by {{post.User.username}} on {{format_date post.createdAt}}
+            </div>
+        </div>
+        <div class="card-body" data-post-id="{{post.postId}}">{{post.body}}
+            </div>    </div>
+    {{#if post.Comments}}
+    <h3>Comments</h3>
+    {{#each post.Comments as |comment|}}
+    {{comment.body}}
+    {{/each}}
+    {{/if}}
     <div>
-        <label for="post-id">Post Name</label>
-        <input type="text"  name="post-id">
-    </div>
-    <div>
-        <label for="comment-body">Comment</label>
-        <input type="text" name="comment-body">
-    </div>
-    <div>
-        <label for="new-comment-form">New Comment</label>
-        <input type="text" name="new-comment-form">
-    </div>
-    <div>
-        <button type="submit">Add</button>
-    </div>
-</form>
+        <form class="comment-form">
+            <div>
+                <label for="comment">comment:</label>
+                <textarea value="post-id" name="comment-body" rows="2" id="comment"></textarea>
+            </div>
+           
+            <div>
+                <button id="comment-btn" type="submit">add comment</button>
+            </div>
+        
+        </form>
 
-<script src="/js/comments.js"></script>
+    </div>
+
+</div>
+<script src="./js/comment.js"></script>
 
 {{!-- from comment.js --}}
