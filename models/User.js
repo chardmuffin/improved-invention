@@ -24,25 +24,25 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len: [8],
+                len: [4],
             }
         },
-        email: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            unique: true,
-            validate: {
-                isEmail: true,
-            },
-        },
-        firstName: {
-            type: DataTypes.STRING,
-            allowNull: true,
-        },
-        lastName: {
-            type: DataTypes.STRING,
-            allowNull: true,
-        },
+        // email: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false,
+        //     unique: true,
+        //     validate: {
+        //         isEmail: true,
+        //     },
+        // },
+        // firstName: {
+        //     type: DataTypes.STRING,
+        //     allowNull: true,
+        // },
+        // lastName: {
+        //     type: DataTypes.STRING,
+        //     allowNull: true,
+        // },
     },
     {
         hooks: {

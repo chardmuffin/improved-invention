@@ -15,37 +15,42 @@ Post.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        content: {
-            type: DataTypes.STRING,
+        body: {
+            type: DataTypes.TEXT,
             allowNull: false,
         },
-        createdAt: {
-            type: DataTypes.DATE,
-            allowNull: true,
-        },
-        updatedAt: {
-            type: DataTypes.DATE,
-            allowNull: true,
-        },
+        // content: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false,
+        // },
+        // createdAt: {
+        //     type: DataTypes.DATE,
+        //     allowNull: true,
+        // },
+        // updatedAt: {
+        //     type: DataTypes.DATE,
+        //     allowNull: true,
+        // },
         user_id: {
             type: DataTypes.INTEGER,
+            allowNull: false,
             references: {
                 model: 'user',
                 key: 'id'
             }
-        }, 
-        category: {
-            type: DataTypes.STRING,
-            allowNull: false,
         }
+        // category: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false,
+        // }
     },
     {
         sequelize,
-        timestamps: false,
+        // timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'Post',
+        modelName: 'post',
     }
 );
 
-module.exports = Post
+module.exports = Post;

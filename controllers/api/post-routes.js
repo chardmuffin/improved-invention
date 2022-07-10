@@ -1,76 +1,76 @@
 const router = require('express').Router();
-const { Post, User, Comment } = require('../../models/');
+const { Post } = require('../../models/');
 const withAuth = require('../../utils/auth');
 
-router.get('/', withAuth, async (req, res) => {
-  console.log('=========================');
-  await Post.findAll({
-    attributes: ['id',
-      'title',
-      'content',
-      'createdAt'
-    ],
-    order: [
-      ['createdAt', 'DESC']
-    ],
-    include: [{
-      model: User,
-      attributes: ['username']
-    },
-    {
-      model: Comment,
-      attributes: ['id', 'comment', 'postId', 'user_id', 'createdAt'],
-      include: {
-        model: User,
-        attributes: ['username']
-      }
-    }]
-  })
-  .then(postData => res.json(postData.reverse()))
-  .catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-  });
-});
+// router.get('/', withAuth, async (req, res) => {
+//   console.log('=========================');
+//   await Post.findAll({
+//     attributes: ['id',
+//       'title',
+//       'content',
+//       'createdAt'
+//     ],
+//     order: [
+//       ['createdAt', 'DESC']
+//     ],
+//     include: [{
+//       model: User,
+//       attributes: ['username']
+//     },
+//     {
+//       model: Comment,
+//       attributes: ['id', 'comment', 'postId', 'user_id', 'createdAt'],
+//       include: {
+//         model: User,
+//         attributes: ['username']
+//       }
+//     }]
+//   })
+//   .then(postData => res.json(postData.reverse()))
+//   .catch(err => {
+//     console.log(err);
+//     res.status(500).json(err);
+//   });
+// });
 
-router.get('/:id', withAuth, async (req, res) => {
-  await Post.findOne({
-    where: {
-      id: req.params.id
-    },
-    attributes: ['id',
-      'title',
-      'content',
-      'createdAt'
-    ],
-    order: [
-      ['createdAt', 'DESC']
-    ],
-    include: [{
-      model: User,
-      attributes: ['username']
-    },
-    {
-      model: Comment,
-      attributes: ['id', 'comment', 'postId', 'user_id', 'createdAt'],
-      include: {
-        model: User,
-        attributes: ['username']
-      }
-    }]
-  })
-  .then(postData => {
-    if (!postData) {
-      res.status(404).json({ Message: 'Post with this ID cannot be found' });
-      return;
-    }
-    res.json(postData.reverse())
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-  });
-});
+// router.get('/:id', withAuth, async (req, res) => {
+//   await Post.findOne({
+//     where: {
+//       id: req.params.id
+//     },
+//     attributes: ['id',
+//       'title',
+//       'content',
+//       'createdAt'
+//     ],
+//     order: [
+//       ['createdAt', 'DESC']
+//     ],
+//     include: [{
+//       model: User,
+//       attributes: ['username']
+//     },
+//     {
+//       model: Comment,
+//       attributes: ['id', 'comment', 'postId', 'user_id', 'createdAt'],
+//       include: {
+//         model: User,
+//         attributes: ['username']
+//       }
+//     }]
+//   })
+//   .then(postData => {
+//     if (!postData) {
+//       res.status(404).json({ Message: 'Post with this ID cannot be found' });
+//       return;
+//     }
+//     res.json(postData.reverse())
+//   })
+//   .catch(err => {
+//     console.log(err);
+//     res.status(500).json(err);
+//   });
+// });
 
 router.post('/', withAuth, async (req, res) => {
   const body = req.body;
